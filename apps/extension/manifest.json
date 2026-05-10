@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "BrowsePilot AI",
+  "version": "0.1.0",
+  "description": "AI browser companion side panel scaffold.",
+  "permissions": ["sidePanel", "scripting", "activeTab", "tabs", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "assets/background.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "src/sidepanel/index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["assets/contentScript.js"]
+    }
+  ],
+  "action": {
+    "default_title": "BrowsePilot AI"
+  }
+}
